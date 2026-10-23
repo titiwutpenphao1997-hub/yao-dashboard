@@ -11,5 +11,5 @@ Note: The Billing tab contains customer names and conditions. Keep this reposito
   - Tier by days remaining vs. the as-of date: `EXPIRED` below 0, `WATCH30` at 30 days or fewer, `WATCH90` at 90 days or fewer, otherwise `OK`.
 - **No date in the lot code, Penta OEM lot (e.g. `IJ02`):** expiry = manufacturing date + shelf-life days from the product's expiry criteria (Excel, "ตามวันผลิต"). Confidence is `estimated`. Tier by % of shelf life left: `>=80%`, `70-80%`, `60-70%`, `<60%`, or `EXPIRED`.
 - **Penta lot code `XYDD`** (letters then day, for example `IJ02`): manufacturing date = year from the first letter (H = 2025, I = 2026), month from the second letter (A = Jan ... L = Dec), day = DD. Example: `IJ02` = 2026-10-02.
-- **Ambiguous codes** (`YYYYMM` prefix such as `202601EABD` and `202709FCCA`): not parsed. Confirm the expiry date before importing.
+- **Lot code starts with YYYYMM then letters** (for example `202709FCCA`): expiry = **last day of that month** (202709 → 30/09/2027, 202601 → 31/01/2026). Confidence is `confirmed`. The day is not written in the code, so the last day is used; 31/09 does not exist.
 - Product expiry summary = the in-stock lot with the earliest expiry.
